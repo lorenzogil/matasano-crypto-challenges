@@ -1,5 +1,5 @@
 # http://cryptopals.com/sets/1/challenges/2/
-from itertools import chain, imap, izip_longest, starmap
+from itertools import imap, izip_longest, starmap
 
 
 def hex2int(chars):
