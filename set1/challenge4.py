@@ -1,4 +1,4 @@
-# http://cryptopals.com/sets/1/challenges/3/
+# http://cryptopals.com/sets/1/challenges/4/
 from itertools import imap, izip_longest
 from operator import itemgetter
 
@@ -61,6 +61,12 @@ def decrypt(input):
     return find_solution(candidates)
 
 
+def find(filename):
+    with open(filename, 'r') as f:
+        candidates = [score(decrypt(line[:-1])) for line in f.readlines()]
+        return find_solution(candidates)
+
+
 if __name__ == '__main__':
-    input = '1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736'
-    print(stringify(decrypt(input)))
+    input = '4.txt'
+    print(stringify(find(input))),
