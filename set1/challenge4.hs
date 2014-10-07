@@ -4,6 +4,7 @@ import Data.Char (chr, toLower)
 import Data.Function (on)
 import Data.List (sortBy)
 import Numeric (readHex)
+import System.IO (readFile)
 
 groupBy :: Int -> [a] -> [[a]]
 groupBy n [] = []
@@ -55,5 +56,11 @@ decrypt input =
         candidates = [score $ xorList decoded key | key <- [0..255]]
     in findSolution candidates
 
-main =
-    putStrLn $ stringify $ decrypt "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
+find :: [[Char]] -> [Int]
+find lines =
+    let candidates = [score $ decrypt line | line <- lines]
+    in findSolution candidates
+
+main = do
+    contents <- readFile "4.txt"
+    putStr $ stringify $ find $ lines contents
