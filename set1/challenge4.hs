@@ -1,4 +1,4 @@
--- http://cryptopals.com/sets/1/challenges/3/
+-- http://cryptopals.com/sets/1/challenges/4/
 import Data.Bits (xor)
 import Data.Char (chr, toLower)
 import Data.Function (on)
