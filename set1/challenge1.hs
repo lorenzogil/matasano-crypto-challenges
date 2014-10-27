@@ -10,7 +10,7 @@ hex2int :: [Char] -> Int
 hex2int x = fst (head (readHex x))
 
 mods :: Int -> [Int]
-mods 0 = [0]
+mods 0 = []
 mods i =
     let (div, mod) = divMod i 2
     in mod:mods div
